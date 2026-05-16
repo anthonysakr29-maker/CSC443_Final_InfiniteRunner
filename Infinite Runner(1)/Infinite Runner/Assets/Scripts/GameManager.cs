@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public float ScrollSpeed { get; private set; }
     public float Distance { get; private set; }
     public bool IsGameOver { get; private set; }
+    public bool IsPaused { get; private set; }
+
+    [SerializeField] private GameObject pauseButton;
 
     void Awake()
     {
@@ -30,15 +33,21 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
+            Restart();
+
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame && !IsGameOver)
+            TogglePause();
+
         if (IsGameOver)
-        {
-            if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
-                Restart();
-
             return;
-        }
 
+        if (IsPaused)
+            return;
         if (config == null) return;
+
+        if (pauseButton != null)
+            pauseButton.SetActive(!GameManager.Instance.IsGameOver);
 
         ScrollSpeed = Mathf.Min(
             ScrollSpeed + config.speedIncreaseRate * Time.deltaTime,
@@ -53,14 +62,51 @@ public class GameManager : MonoBehaviour
         if (IsGameOver) return;
 
         IsGameOver = true;
+        IsPaused = false;
+        Time.timeScale = 1f;
         ScrollSpeed = 0f;
 
         Debug.Log("Game Over. Press R to restart. Final score: " + Mathf.FloorToInt(Distance));
+    }
+
+    public void TogglePause()
+    {
+        if (IsGameOver) return;
+
+        if (IsPaused)
+            ResumeGame();
+        else
+            PauseGame();
+    }
+
+    public void PauseGame()
+    {
+        if (IsGameOver) return;
+
+        IsPaused = true;
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        IsPaused = false;
+        Time.timeScale = 1f;
     }
 
     public void Restart()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ReturnToMainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 }

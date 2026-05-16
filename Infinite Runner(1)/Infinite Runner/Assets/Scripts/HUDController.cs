@@ -10,12 +10,18 @@ public class HUDController : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TMP_Text finalScoreText;
 
+    [Header("Pause")]
+    [SerializeField] private GameObject pausePanel;
+
     private bool _gameOverShown;
 
     void Start()
     {
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
+
+        if (pausePanel != null)
+            pausePanel.SetActive(false);
     }
 
     void Update()
@@ -26,6 +32,9 @@ public class HUDController : MonoBehaviour
 
         if (scoreText != null)
             scoreText.text = "Score: " + score;
+
+        if (pausePanel != null)
+            pausePanel.SetActive(GameManager.Instance.IsPaused);
 
         if (GameManager.Instance.IsGameOver && !_gameOverShown)
         {
