@@ -5,11 +5,13 @@ public class HUDController : MonoBehaviour
 {
     [Header("Score")]
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text coinText;
 
     [Header("Game Over")]
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TMP_Text finalScoreText;
     [SerializeField] private TMP_Text highScoreText;
+    [SerializeField] private TMP_Text finalCoinsText;
 
     [Header("Pause")]
     [SerializeField] private GameObject pausePanel;
@@ -34,6 +36,9 @@ public class HUDController : MonoBehaviour
         if (scoreText != null)
             scoreText.text = "Score: " + score;
 
+        if (coinText != null)
+            coinText.text = "Coins: " + GameManager.Instance.Coins;
+
         if (pausePanel != null)
             pausePanel.SetActive(GameManager.Instance.IsPaused);
 
@@ -49,6 +54,9 @@ public class HUDController : MonoBehaviour
 
             if (highScoreText != null)
                 highScoreText.text = "High Score: " + GameManager.Instance.HighScore;
+
+            if (finalCoinsText != null)
+                finalCoinsText.text = "Total Coins: " + GameManager.Instance.Coins;
         }
     }
 }

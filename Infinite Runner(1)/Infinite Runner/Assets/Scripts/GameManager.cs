@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
     public float Distance { get; private set; }
     public bool IsGameOver { get; private set; }
     public bool IsPaused { get; private set; }
-
     public int HighScore { get; private set; }
+    public int Coins { get; private set; }
 
     [SerializeField] private GameObject pauseButton;
 
@@ -121,5 +121,10 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void AddCoins(int amount)
+    {
+        Coins += amount;
     }
 }
