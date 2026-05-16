@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6245777015909894919}
   - component: {fileID: 7750151195500601776}
   - component: {fileID: 9140417610884539980}
-  - component: {fileID: 2681065223392981316}
+  - component: {fileID: 4195403616840767372}
   m_Layer: 0
   m_Name: Roadblock
   m_TagString: Untagged
@@ -90,7 +90,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &9140417610884539980
 BoxCollider:
@@ -113,7 +112,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2681065223392981316
+--- !u!114 &4195403616840767372
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +121,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3984087197201614647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7bbaf71a49794bba9e56bc1c70b727c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f05f58360ff4304d96286daeb0f427f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  kind: 0
