@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public bool IsGameOver { get; private set; }
     public bool IsPaused { get; private set; }
 
+    public int HighScore { get; private set; }
+
     [SerializeField] private GameObject pauseButton;
 
     void Awake()
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour
             ScrollSpeed = config.startSpeed;
 
         Time.timeScale = 1f;
+
+        HighScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
     void Update()
@@ -65,6 +69,15 @@ public class GameManager : MonoBehaviour
         IsPaused = false;
         Time.timeScale = 1f;
         ScrollSpeed = 0f;
+
+        int finalScore = Mathf.FloorToInt(Distance);
+
+        if (finalScore > HighScore)
+        {
+            HighScore = finalScore;
+            PlayerPrefs.SetInt("HighScore", HighScore);
+            PlayerPrefs.Save();
+        }
 
         Debug.Log("Game Over. Press R to restart. Final score: " + Mathf.FloorToInt(Distance));
     }

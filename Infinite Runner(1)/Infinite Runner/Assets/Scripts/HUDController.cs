@@ -9,6 +9,7 @@ public class HUDController : MonoBehaviour
     [Header("Game Over")]
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TMP_Text finalScoreText;
+    [SerializeField] private TMP_Text highScoreText;
 
     [Header("Pause")]
     [SerializeField] private GameObject pausePanel;
@@ -45,6 +46,9 @@ public class HUDController : MonoBehaviour
 
             if (finalScoreText != null)
                 finalScoreText.text = "Final Score: " + score;
+
+            if (highScoreText != null)
+                highScoreText.text = "High Score: " + GameManager.Instance.HighScore;
         }
     }
 }
