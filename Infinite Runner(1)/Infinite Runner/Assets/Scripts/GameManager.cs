@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private GameConfig config;
-
+    [SerializeField] private GameObject deathEffectPrefab;
     public float ScrollSpeed { get; private set; }
     public float Distance { get; private set; }
     public bool IsGameOver { get; private set; }
@@ -78,6 +78,9 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", HighScore);
             PlayerPrefs.Save();
         }
+
+        if (deathEffectPrefab != null)
+            Instantiate(deathEffectPrefab, FindFirstObjectByType<PlayerController>().transform.position, Quaternion.identity);
 
         Debug.Log("Game Over. Press R to restart. Final score: " + Mathf.FloorToInt(Distance));
     }

@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   value: 1
-  pickupEffectPrefab: {fileID: 0}
+  pickupEffectPrefab: {fileID: 3574330595780646517, guid: 8612e7c64462d44489e243b14dc11ee5, type: 3}
   rotationSpeed: 100
 --- !u!136 &3038709986237155476
 CapsuleCollider:
