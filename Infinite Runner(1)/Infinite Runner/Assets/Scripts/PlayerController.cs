@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float slideDuration = 0.7f;
     [SerializeField] private float slideColliderHeight = 1f;
     [SerializeField] private Vector3 slideColliderCenter = new Vector3(0f, 0.5f, 0f);
+    [SerializeField] private ParticleSystem slideDustEffect;
 
     private bool _isSliding;
     private CapsuleCollider _capsuleCollider;
@@ -130,6 +131,9 @@ public class PlayerController : MonoBehaviour
             _capsuleCollider.center = slideColliderCenter;
         }
 
+        if (slideDustEffect != null)
+            slideDustEffect.Play();
+
         yield return new WaitForSeconds(slideDuration);
 
         if (_capsuleCollider != null)
@@ -137,6 +141,9 @@ public class PlayerController : MonoBehaviour
             _capsuleCollider.height = _normalColliderHeight;
             _capsuleCollider.center = _normalColliderCenter;
         }
+
+        if (slideDustEffect != null)
+            slideDustEffect.Stop();
 
         _isSliding = false;
     }
