@@ -64,7 +64,12 @@ public class PlayerController : MonoBehaviour
             ChangeLane(-1);
 
         if (v.y > 0.5f && _prevMove.y <= 0.5f && IsGrounded())
+        {
             _yVel = jumpVelocity;
+
+            if (_animator != null)
+                _animator.SetTrigger("Jump");
+        }
 
         if (v.y < -0.5f && _prevMove.y >= -0.5f && !_isSliding && IsGrounded())
             StartCoroutine(SlideRoutine());
