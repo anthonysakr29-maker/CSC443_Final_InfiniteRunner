@@ -2771,6 +2771,9 @@ MonoBehaviour:
   laneSwitchSpeed: 14
   jumpVelocity: 10
   gravity: -25
+  slideDuration: 0.7
+  slideColliderHeight: 1
+  slideColliderCenter: {x: 0, y: 0.5, z: 0}
 --- !u!54 &2020257607
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2965,6 +2968,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8084772}
     m_Modifications:
+    - target: {fileID: 1014860696115371117, guid: dcbc89efbe5bd174b99e07c76bd0b6bf, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6034399179512208557, guid: dcbc89efbe5bd174b99e07c76bd0b6bf, type: 3}
       propertyPath: m_Name
       value: King

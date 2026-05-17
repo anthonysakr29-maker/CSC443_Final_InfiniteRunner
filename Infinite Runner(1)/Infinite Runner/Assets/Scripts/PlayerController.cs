@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,17 @@ public class PlayerController : MonoBehaviour
     [Header("Jump")]
     [SerializeField] private float jumpVelocity = 8f;
     [SerializeField] private float gravity = -25f;
+
+    [Header("Slide")]
+    [SerializeField] private float slideDuration = 0.7f;
+    [SerializeField] private float slideColliderHeight = 1f;
+    [SerializeField] private Vector3 slideColliderCenter = new Vector3(0f, 0.5f, 0f);
+
+    private bool _isSliding;
+    private CapsuleCollider _capsuleCollider;
+    private float _normalColliderHeight;
+    private Vector3 _normalColliderCenter;
+    private Animator _animator;
 
     private int _laneIndex;
     private float _y;
@@ -27,6 +39,16 @@ public class PlayerController : MonoBehaviour
         }
 
         _y = transform.position.y;
+
+        _capsuleCollider = GetComponent<CapsuleCollider>();
+
+        if (_capsuleCollider != null)
+        {
+            _normalColliderHeight = _capsuleCollider.height;
+            _normalColliderCenter = _capsuleCollider.center;
+        }
+
+        _animator = GetComponentInChildren<Animator>();
     }
 
     public void Move(InputAction.CallbackContext ctx)
@@ -40,8 +62,11 @@ public class PlayerController : MonoBehaviour
         else if (v.x < -0.5f && _prevMove.x >= -0.5f)
             ChangeLane(-1);
 
-        if (v.y > 0.5f && _prevMove.y <= 0.5f && IsGrounded())
+        if (v.y > 0.5f && _prevMove.y <= 0.5f && _y <= 0f)
             _yVel = jumpVelocity;
+
+        if (v.y < -0.5f && _prevMove.y >= -0.5f && !_isSliding && _y <= 0f)
+            StartCoroutine(SlideRoutine());
 
         _prevMove = v;
     }
@@ -90,5 +115,29 @@ public class PlayerController : MonoBehaviour
     {
         if (Mathf.Approximately(_groundHeight, height))
             _groundHeight = 0f;
+    }
+
+    private IEnumerator SlideRoutine()
+    {
+        _isSliding = true;
+
+        if (_animator != null)
+            _animator.SetTrigger("Slide");
+
+        if (_capsuleCollider != null)
+        {
+            _capsuleCollider.height = slideColliderHeight;
+            _capsuleCollider.center = slideColliderCenter;
+        }
+
+        yield return new WaitForSeconds(slideDuration);
+
+        if (_capsuleCollider != null)
+        {
+            _capsuleCollider.height = _normalColliderHeight;
+            _capsuleCollider.center = _normalColliderCenter;
+        }
+
+        _isSliding = false;
     }
 }
