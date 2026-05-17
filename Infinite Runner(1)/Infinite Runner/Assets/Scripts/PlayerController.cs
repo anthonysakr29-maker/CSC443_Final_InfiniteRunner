@@ -63,10 +63,10 @@ public class PlayerController : MonoBehaviour
         else if (v.x < -0.5f && _prevMove.x >= -0.5f)
             ChangeLane(-1);
 
-        if (v.y > 0.5f && _prevMove.y <= 0.5f && _y <= 0f)
+        if (v.y > 0.5f && _prevMove.y <= 0.5f && IsGrounded())
             _yVel = jumpVelocity;
 
-        if (v.y < -0.5f && _prevMove.y >= -0.5f && !_isSliding && _y <= 0f)
+        if (v.y < -0.5f && _prevMove.y >= -0.5f && !_isSliding && IsGrounded())
             StartCoroutine(SlideRoutine());
 
         _prevMove = v;
@@ -97,8 +97,7 @@ public class PlayerController : MonoBehaviour
         pos.z = 0f;
         transform.position = pos;
 
-        // Reset every frame. RunnerPlatform will set it again while player is on top.
-        _groundHeight = 0f;
+        
     }
 
     private bool IsGrounded()
