@@ -70,6 +70,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         ScrollSpeed = 0f;
 
+        Animator playerAnimator = FindFirstObjectByType<PlayerController>().GetComponentInChildren<Animator>();
+
+        if (playerAnimator != null)
+            playerAnimator.SetTrigger("Die");
+
         int finalScore = Mathf.FloorToInt(Distance);
 
         if (finalScore > HighScore)
