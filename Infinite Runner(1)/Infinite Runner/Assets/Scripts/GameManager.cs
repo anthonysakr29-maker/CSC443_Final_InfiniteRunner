@@ -84,6 +84,9 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.Save();
         }
 
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayDeath();
+
         if (deathEffectPrefab != null)
             Instantiate(deathEffectPrefab, FindFirstObjectByType<PlayerController>().transform.position, Quaternion.identity);
 

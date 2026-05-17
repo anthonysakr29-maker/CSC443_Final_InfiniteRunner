@@ -20,6 +20,9 @@ public class Coin : MonoBehaviour
 
         GameManager.Instance.AddCoins(value);
 
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayCoin();
+
         gameObject.SetActive(false);
     }
 
