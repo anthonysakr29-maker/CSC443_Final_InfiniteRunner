@@ -133,7 +133,12 @@ public class GameManager : MonoBehaviour
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneFadeTransition fadeTransition = FindFirstObjectByType<SceneFadeTransition>();
+
+        if (fadeTransition != null)
+            fadeTransition.FadeToScene("MainMenu");
+        else
+            SceneManager.LoadScene("MainMenu");
     }
 
     public void AddCoins(int amount)

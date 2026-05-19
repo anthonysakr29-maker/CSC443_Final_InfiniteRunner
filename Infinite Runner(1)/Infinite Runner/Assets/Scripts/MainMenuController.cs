@@ -6,11 +6,14 @@ public class MainMenuController : MonoBehaviour
 {
     [SerializeField] private string gameSceneName = "SampleScene";
     [SerializeField] private TMP_Text highScoreText;
-
+    [SerializeField] private SceneFadeTransition sceneFadeTransition;
     public void PlayGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(gameSceneName);
+        if (sceneFadeTransition != null)
+            sceneFadeTransition.FadeToScene(gameSceneName);
+        else
+            SceneManager.LoadScene(gameSceneName);
     }
 
     public void QuitGame()
