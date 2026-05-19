@@ -15,6 +15,7 @@ public class HUDController : MonoBehaviour
 
     [Header("Pause")]
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private OptionsMenu optionsMenu;
 
     private bool _gameOverShown;
 
@@ -40,7 +41,10 @@ public class HUDController : MonoBehaviour
             coinText.text = "Coins: " + GameManager.Instance.Coins;
 
         if (pausePanel != null)
-            pausePanel.SetActive(GameManager.Instance.IsPaused);
+        {
+            bool optionsOpen = optionsMenu != null && optionsMenu.IsOpen;
+            pausePanel.SetActive(GameManager.Instance.IsPaused && !optionsOpen);
+        }
 
         if (GameManager.Instance.IsGameOver && !_gameOverShown)
         {

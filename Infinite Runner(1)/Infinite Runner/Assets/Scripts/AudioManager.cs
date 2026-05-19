@@ -29,6 +29,12 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        if (musicSource != null)
+            musicSource.volume = GetMusicVolume();
+
+        if (sfxSource != null)
+            sfxSource.volume = GetSFXVolume();
+
         if (musicSource != null && backgroundMusic != null)
         {
             musicSource.clip = backgroundMusic;
@@ -56,5 +62,33 @@ public class AudioManager : MonoBehaviour
     {
         if (sfxSource != null && clip != null)
             sfxSource.PlayOneShot(clip, volume);
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        if (musicSource != null)
+            musicSource.volume = volume;
+
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+        PlayerPrefs.Save();
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        if (sfxSource != null)
+            sfxSource.volume = volume;
+
+        PlayerPrefs.SetFloat("SFXVolume", volume);
+        PlayerPrefs.Save();
+    }
+
+    public float GetMusicVolume()
+    {
+        return PlayerPrefs.GetFloat("MusicVolume", 0.4f);
+    }
+
+    public float GetSFXVolume()
+    {
+        return PlayerPrefs.GetFloat("SFXVolume", 1f);
     }
 }
