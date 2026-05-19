@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f460430b1614e63937a78aa2e962ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelGenerator
-  starterChunkPrefab: {fileID: 8712000992499624680, guid: 2209fd66c6b2a47fa9d17f2c466e3919, type: 3}
+  starterChunkPrefab: {fileID: 8712000992499624680, guid: d55ab38e1d2083c42a0e600eec866e28, type: 3}
   chunkPrefabs:
   - {fileID: 53845519711498772, guid: 9803300084fe4418d90b7e6a603d0cbf, type: 3}
   - {fileID: 6230059130620351680, guid: 7ca0b3ebd5ce84f418cdb6ca1acc40c6, type: 3}
@@ -2065,7 +2065,7 @@ MonoBehaviour:
   - {fileID: 6230059130620351680, guid: 12ead02ca35114d44a269a43550d6aaa, type: 3}
   - {fileID: 6230059130620351680, guid: cba887e1b82ccd7498fe40a5e9ded864, type: 3}
   - {fileID: 6230059130620351680, guid: 4acb94df34cb5e341959cbf1a20e1487, type: 3}
-  chunkPoolSize: 3
+  chunkPoolSize: 2
   spawnAhead: 100
   recycleBehind: 30
 --- !u!4 &1311608219

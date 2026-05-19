@@ -42,9 +42,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1723443905544339492}
   - component: {fileID: 1556986383670522796}
-  - component: {fileID: 6417728014545012031}
   m_Layer: 0
-  m_Name: Chunk
+  m_Name: Chunk_NoCoins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,31 +80,6 @@ MonoBehaviour:
   length: 10
   entry: -1
   exit: -1
---- !u!114 &6417728014545012031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8712000992499624680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f2f8c0a428e2274380f8b026ebdac21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChunkCoinSpawner
-  coinPrefab: {fileID: 2701371198782746121, guid: ab7079beca09c4a45a24d22df07e346f, type: 3}
-  spawnChance: 0.6
-  maxCoinLines: 1
-  minCoinsPerPattern: 6
-  maxCoinsPerPattern: 10
-  laneOffset: 2
-  coinHeight: 1
-  startZ: -10
-  spacingZ: 1.7
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 8
-  coinCheckHalfExtents: {x: 0.25, y: 0.25, z: 0.25}
 --- !u!1001 &3950652156614501324
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayCoin()
     {
-        PlaySFX(coinClip);
+        PlaySFX(coinClip, 0.35f);
     }
 
     public void PlayDeath()
@@ -52,9 +52,9 @@ public class AudioManager : MonoBehaviour
         PlaySFX(buttonClickClip);
     }
 
-    private void PlaySFX(AudioClip clip)
+    private void PlaySFX(AudioClip clip, float volume = 1f)
     {
         if (sfxSource != null && clip != null)
-            sfxSource.PlayOneShot(clip);
+            sfxSource.PlayOneShot(clip, volume);
     }
 }

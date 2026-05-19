@@ -19,12 +19,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector3 slideColliderCenter = new Vector3(0f, 0.5f, 0f);
     [SerializeField] private ParticleSystem slideDustEffect;
 
+    private bool _isJumping;
     private bool _isSliding;
     private Coroutine _slideCoroutine;
     private CapsuleCollider _capsuleCollider;
     private float _normalColliderHeight;
     private Vector3 _normalColliderCenter;
     private Animator _animator;
+    private float _baseRunSpeed;
 
     private int _laneIndex;
     private float _y;
@@ -51,6 +53,8 @@ public class PlayerController : MonoBehaviour
         }
 
         _animator = GetComponentInChildren<Animator>();
+        if (_animator != null)
+            _baseRunSpeed = _animator.speed;
     }
 
     public void Move(InputAction.CallbackContext ctx)
@@ -71,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
             if (IsGrounded())
             {
+                _isJumping = true;
                 _yVel = jumpVelocity;
 
                 if (_animator != null)
@@ -105,6 +110,8 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.Instance != null && GameManager.Instance.IsGameOver) return;
 
+        UpdateRunAnimationSpeed();
+
         _yVel += gravity * Time.deltaTime;
         _y += _yVel * Time.deltaTime;
 
@@ -113,6 +120,9 @@ public class PlayerController : MonoBehaviour
             _y = _groundHeight;
             _yVel = 0f;
         }
+
+        if (IsGrounded() && _yVel == 0f)
+            _isJumping = false;
 
         Vector3 pos = transform.position;
         pos.x = Mathf.MoveTowards(pos.x, _laneIndex * laneOffset, laneSwitchSpeed * Time.deltaTime);
@@ -162,12 +172,30 @@ public class PlayerController : MonoBehaviour
         if (_animator != null)
             _animator.ResetTrigger("Slide");
     }
+
+    private void UpdateRunAnimationSpeed()
+    {
+        if (_animator == null || GameManager.Instance == null) return;
+
+        if (_isSliding || _isJumping)
+        {
+            _animator.speed = _baseRunSpeed;
+            return;
+        }
+
+        float speedRatio = GameManager.Instance.ScrollSpeed / 8f;
+        _animator.speed = Mathf.Clamp(speedRatio, 1f, 2.2f);
+    }
+
     private IEnumerator SlideRoutine()
     {
         _isSliding = true;
 
         if (_animator != null)
             _animator.SetTrigger("Slide");
+
+        if (_animator != null)
+            _animator.speed = _baseRunSpeed;
 
         if (_capsuleCollider != null)
         {

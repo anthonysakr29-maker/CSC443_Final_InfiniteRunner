@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameConfig
   startSpeed: 8
   maxSpeed: 21
-  speedIncreaseRate: 0.15
+  speedIncreaseRate: 0.12
