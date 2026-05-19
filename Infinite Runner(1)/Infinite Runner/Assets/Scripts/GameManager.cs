@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameConfig config;
     [SerializeField] private GameObject deathEffectPrefab;
+    [SerializeField] private bool allowRestartInput = true;
+    [SerializeField] private bool allowPauseInput = true;
     public float ScrollSpeed { get; private set; }
     public float Distance { get; private set; }
     public bool IsGameOver { get; private set; }
@@ -37,10 +39,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
+        if (allowRestartInput && Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
             Restart();
 
-        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame && !IsGameOver)
+        if (allowPauseInput && Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame && !IsGameOver)
             TogglePause();
 
         if (IsGameOver)
