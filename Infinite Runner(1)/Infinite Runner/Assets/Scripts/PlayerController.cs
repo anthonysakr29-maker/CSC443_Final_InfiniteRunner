@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem slideDustEffect;
 
     private bool _isSliding;
+    private Coroutine _slideCoroutine;
     private CapsuleCollider _capsuleCollider;
     private float _normalColliderHeight;
     private Vector3 _normalColliderCenter;
@@ -63,16 +64,33 @@ public class PlayerController : MonoBehaviour
         else if (v.x < -0.5f && _prevMove.x >= -0.5f)
             ChangeLane(-1);
 
-        if (v.y > 0.5f && _prevMove.y <= 0.5f && IsGrounded())
+        if (v.y > 0.5f && _prevMove.y <= 0.5f)
         {
-            _yVel = jumpVelocity;
+            if (_isSliding)
+                CancelSlide();
 
-            if (_animator != null)
-                _animator.SetTrigger("Jump");
+            if (IsGrounded())
+            {
+                _yVel = jumpVelocity;
+
+                if (_animator != null)
+                {
+                    _animator.ResetTrigger("Slide");
+                    _animator.SetTrigger("Jump");
+                }
+            }
         }
 
-        if (v.y < -0.5f && _prevMove.y >= -0.5f && !_isSliding && IsGrounded())
-            StartCoroutine(SlideRoutine());
+        if (v.y < -0.5f && _prevMove.y >= -0.5f)
+        {
+            if (!_isSliding)
+            {
+                if (_animator != null)
+                    _animator.ResetTrigger("Jump");
+
+                _slideCoroutine = StartCoroutine(SlideRoutine());
+            }
+        }
 
         _prevMove = v;
     }
@@ -122,6 +140,28 @@ public class PlayerController : MonoBehaviour
             _groundHeight = 0f;
     }
 
+    private void CancelSlide()
+    {
+        if (_slideCoroutine != null)
+        {
+            StopCoroutine(_slideCoroutine);
+            _slideCoroutine = null;
+        }
+
+        if (_capsuleCollider != null)
+        {
+            _capsuleCollider.height = _normalColliderHeight;
+            _capsuleCollider.center = _normalColliderCenter;
+        }
+
+        if (slideDustEffect != null)
+            slideDustEffect.Stop();
+
+        _isSliding = false;
+
+        if (_animator != null)
+            _animator.ResetTrigger("Slide");
+    }
     private IEnumerator SlideRoutine()
     {
         _isSliding = true;
@@ -150,5 +190,6 @@ public class PlayerController : MonoBehaviour
             slideDustEffect.Stop();
 
         _isSliding = false;
+        _slideCoroutine = null;
     }
 }
