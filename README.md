@@ -1,5 +1,7 @@
 # CSC 443 Infinite Runner Final Project
-# Anthony Sakr 20231456
+
+**Student:** Anthony Sakr  
+**ID:** 20231456
 
 ## Project Overview
 
@@ -50,6 +52,9 @@ The project was extended beyond the starter version with menus, scoring, high sc
 - Rotating coin animation
 - Coin pickup particle effect
 - Coin pickup sound effect
+- Randomized coin spawn patterns
+- Randomized coin count per pattern
+- Obstacle-aware coin spawning to reduce coins appearing inside hazards
 
 ### Menus and UI
 - Main menu scene
@@ -61,6 +66,9 @@ The project was extended beyond the starter version with menus, scoring, high sc
 - Game over screen
 - Restart button
 - Main menu button
+- How To Play screen with controls display
+- Options menu with music and SFX volume sliders
+- Fade transitions between menu and gameplay
 
 ### Animation and Polish
 - Death animation
@@ -72,6 +80,8 @@ The project was extended beyond the starter version with menus, scoring, high sc
 - Background music
 - UI button click sounds
 - Death sound effect
+- Jump and slide actions can interrupt each other for more responsive movement
+- Mid-air slide input makes the player fall faster into a slide
 
 ### Difficulty Ramping
 - The runner speed increases over time
@@ -92,7 +102,7 @@ The main extensions added to the base infinite runner are:
 7. Slide/crouch mechanic with custom obstacle support (A)
 8. Audio polish for buttons, coins, music, and death
 9. Multiple custom chunk prefabs created (F)
-10. Slight tweak in difficulty (G)
+10. Speed-based difficulty tuning (G)
 
 ---
 
@@ -111,8 +121,16 @@ The main extensions added to the base infinite runner are:
 ---
 
 ## Known Bugs/Unfinished things
+## Known Notes
 
-1. Animations need better transitions.
-2. Empty Background during gameplay
+- Some animation transitions could be further polished with more blend tuning.
+- The background/environment could be expanded with more decorative scenery in future versions.
+- Coin spawning not perfected, some cases of coins spawning in obstacles appear during gameplay.
 ---
 
+
+## Links
+
+GitHub Repository: https://github.com/anthonysakr29-maker/CSC443_Final_InfiniteRunner
+
+Gameplay Video: https://youtu.be/ug5RZr6oHGs
