@@ -5409,6 +5409,7 @@ MonoBehaviour:
   slideColliderHeight: 1
   slideColliderCenter: {x: 0, y: 0.5, z: 0}
   slideDustEffect: {fileID: 1178269595}
+  airSlideDownVelocity: -10
 --- !u!54 &2020257607
 Rigidbody:
   m_ObjectHideFlags: 0
