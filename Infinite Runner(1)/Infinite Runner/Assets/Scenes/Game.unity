@@ -545,7 +545,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SFX Volume
+  m_text: "SFX V\xF8lume"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
   m_sharedMaterial: {fileID: -7690129986309130711, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music Volume
+  m_text: "Music V\xF8lume"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
   m_sharedMaterial: {fileID: -7690129986309130711, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
@@ -1620,7 +1620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME OVER
+  m_text: "GAME \xD8VER"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
   m_sharedMaterial: {fileID: -7690129986309130711, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
@@ -3519,7 +3519,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Coin: 0'
+  m_text: "C\xF8in: 0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
   m_sharedMaterial: {fileID: -7690129986309130711, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
@@ -4708,7 +4708,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'High Score: 0'
+  m_text: "High Sc\xF8re: 0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
   m_sharedMaterial: {fileID: -7690129986309130711, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
@@ -4891,7 +4891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Final Score: 0'
+  m_text: "Final Sc\xF8re: 0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
   m_sharedMaterial: {fileID: -7690129986309130711, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
@@ -5166,7 +5166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -49.67, y: -55.3}
+  m_AnchoredPosition: {x: -49.66992, y: -55.30005}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1995073434
@@ -5207,7 +5207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 0'
+  m_text: "Sc\xF8re: 0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
   m_sharedMaterial: {fileID: -7690129986309130711, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
@@ -5578,7 +5578,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Total Coins: 0'
+  m_text: "T\xF8tal C\xF8ins: 0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
   m_sharedMaterial: {fileID: -7690129986309130711, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}

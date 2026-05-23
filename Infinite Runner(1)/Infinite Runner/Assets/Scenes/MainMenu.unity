@@ -1916,7 +1916,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Controls
+  m_text: "C\xF8ntr\xF8ls"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
   m_sharedMaterial: {fileID: -7690129986309130711, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
@@ -3843,7 +3843,7 @@ GameObject:
   - component: {fileID: 1334342482}
   - component: {fileID: 1334342481}
   m_Layer: 5
-  m_Name: ToMoveText
+  m_Name: ToRestartText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4005,7 +4005,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'High Score: 0'
+  m_text: "High Sc\xF8re: 0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
   m_sharedMaterial: {fileID: -7690129986309130711, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
@@ -4736,7 +4736,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SFX Volume
+  m_text: "SFX V\xF8lume"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
   m_sharedMaterial: {fileID: -7690129986309130711, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
@@ -5469,7 +5469,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: How To Play
+  m_text: "H\xF8w T\xF8 Play"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
   m_sharedMaterial: {fileID: -7690129986309130711, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
@@ -6220,6 +6220,7 @@ MonoBehaviour:
   slideColliderHeight: 1
   slideColliderCenter: {x: 0, y: 0.5, z: 0}
   slideDustEffect: {fileID: 0}
+  airSlideDownVelocity: -15
 --- !u!54 &2020257607
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6327,7 +6328,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music Volume
+  m_text: "Music V\xF8lume"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}
   m_sharedMaterial: {fileID: -7690129986309130711, guid: bd519910be9397c42ae22ac583e03fb8, type: 2}

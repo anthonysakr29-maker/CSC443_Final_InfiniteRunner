@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float slideColliderHeight = 1f;
     [SerializeField] private Vector3 slideColliderCenter = new Vector3(0f, 0.5f, 0f);
     [SerializeField] private ParticleSystem slideDustEffect;
+    [SerializeField] private float airSlideDownVelocity = -22f;
 
     private bool _isJumping;
     private bool _isSliding;
@@ -92,6 +93,9 @@ public class PlayerController : MonoBehaviour
             {
                 if (_animator != null)
                     _animator.ResetTrigger("Jump");
+
+                if (!IsGrounded())
+                    _yVel = airSlideDownVelocity;
 
                 _slideCoroutine = StartCoroutine(SlideRoutine());
             }
